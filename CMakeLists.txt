@@ -14,7 +14,7 @@ project(slowmath
 ###############################################################################
 
 add_library(slowmath STATIC
-  lib/slowmath/slowmath.cpp)
+  lib/slowmath/slowmath.cc)
 
 target_include_directories(slowmath PRIVATE
   lib)
@@ -24,7 +24,7 @@ target_include_directories(slowmath PRIVATE
 ###############################################################################
 
 add_executable(driver
-  src/driver.cpp)
+  src/driver.cc)
 
 target_include_directories(driver PRIVATE
   lib)
