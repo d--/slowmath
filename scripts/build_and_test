@@ -1,0 +1,18 @@
+#!/bin/bash
+
+main() {
+  cd-to-top-of-repo
+  mkdir -p build
+  cd build
+
+  cmake ..
+  make all test
+}
+
+cd-to-top-of-repo() {
+  cd "$(dirname ${BASH_SOURCE[0]})"
+  cd ..
+}
+
+main "$@"
+

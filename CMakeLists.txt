@@ -9,6 +9,8 @@ project(slowmath
   VERSION 0.0.1
   DESCRIPTION "very slow implementations of math functions for my learning")
 
+enable_testing()
+
 ###############################################################################
 # library
 ###############################################################################
@@ -23,12 +25,21 @@ target_include_directories(slowmath PRIVATE
 # test driver
 ###############################################################################
 
-add_executable(driver
-  src/driver.cc)
+add_executable(simple
+  test/simple.cc)
 
-target_include_directories(driver PRIVATE
+target_include_directories(simple PRIVATE
   lib)
 
-target_link_libraries(driver PRIVATE
+target_link_libraries(simple PRIVATE
   slowmath)
+
+###############################################################################
+# tests
+###############################################################################
+
+add_test(
+  NAME simple
+  COMMAND simple 
+)
 
