@@ -1,7 +1,8 @@
 #include "slowmath.h"
 #include <iostream>
+#include <cmath>
 
-void slowmath::hello() {
-  std::cout << "sup\n";
-} 
+double slowmath::sin(double input) {
+  return ::sin(input);
+}
 

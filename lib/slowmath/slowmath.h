@@ -2,7 +2,7 @@
 #define _SLOWMATH_H_
 
 namespace slowmath {
-    void hello();
+    double sin(double input);
 }
 
 #endif // _SLOWMATH_H_
