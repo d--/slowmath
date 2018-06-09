@@ -1,12 +1,15 @@
 #!/bin/bash
 
 main() {
-  cd-to-top-of-repo
-  mkdir -p build
-  cd build
+  (
+    cd-to-top-of-repo
 
-  cmake ..
-  make all test
+    mkdir -p build
+    cd build
+
+    cmake ..
+    make all CTEST_OUTPUT_ON_FAILURE=1 test
+  )
 }
 
 cd-to-top-of-repo() {

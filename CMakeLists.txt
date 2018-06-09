@@ -10,6 +10,9 @@ project(slowmath
   DESCRIPTION "very slow implementations of math functions for my learning")
 
 enable_testing()
+add_subdirectory(test/vendor/googletest/googletest
+  EXCLUDE_FROM_ALL)
+
 
 ###############################################################################
 # library
@@ -21,25 +24,27 @@ add_library(slowmath STATIC
 target_include_directories(slowmath PRIVATE
   lib)
 
+
 ###############################################################################
 # test driver
 ###############################################################################
 
-add_executable(simple
-  test/simple.cc)
+add_executable(simple_tests
+  test/simple_tests.cc)
 
-target_include_directories(simple PRIVATE
+target_include_directories(simple_tests PRIVATE
+  test/vendor/googletest/googletest/include
   lib)
 
-target_link_libraries(simple PRIVATE
+target_link_libraries(simple_tests PRIVATE
+  gtest
   slowmath)
+
 
 ###############################################################################
 # tests
 ###############################################################################
 
-add_test(
-  NAME simple
-  COMMAND simple 
-)
+add_test(NAME simple_tests
+  COMMAND simple_tests)
 
